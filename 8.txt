@@ -1,0 +1,47 @@
+<html>
+  <head>
+    <title>User Details Form</title>
+  </head>
+  <body>
+    <h2>User Details Form</h2>
+    <form method="post" action="display.php">
+      <label for="name">Name:</label>
+      <input type="text" name="name" required /><br /><br />
+      <label for="email">Email:</label>
+      <input type="email" name="email" required /><br /><br />
+      <label for="age">Age:</label>
+      <input type="number" name="age" required /><br /><br />
+      <label for="gender">Gender:</label>
+      <input type="radio" name="gender" value="Male" required /> Male
+      <input type="radio" name="gender" value="Female" required />
+      Female<br /><br />
+      <input type="submit" value="Submit" />
+    </form>
+  </body>
+</html>
+
+
+<html> 
+<head> 
+<title>User Details</title> 
+</head> 
+<body> 
+<h2>Submitted User Details</h2> 
+<?php 
+if ($_SERVER["REQUEST_METHOD"] === "POST") 
+{ 
+$name = $_POST["name"]; 
+$email = $_POST["email"]; 
+$age = $_POST["age"]; 
+$gender = $_POST["gender"]; 
+ 
+echo "Name: " . $name ; 
+echo "Email: " . $email ; 
+echo "Age: " . $age ; 
+echo "Gender: " . $gender ; 
+} 
+?> 
+</body> 
+</html>
+
+

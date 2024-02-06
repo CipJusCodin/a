@@ -1,0 +1,127 @@
+<html>
+  <body>
+    <div
+      onmousedown="mDown(this)"
+      onmouseup="mUp(this)"
+      style="
+        background-color: #d94a38;
+        width: 90px;
+        height: 20px;
+        padding: 40px;
+      "
+    >
+      Click Me
+    </div>
+
+    <script>
+      function mDown(obj) {
+        obj.style.backgroundColor = "#1ec5e5";
+        obj.innerHTML = "Release Me";
+      }
+
+      function mUp(obj) {
+        obj.style.backgroundColor = "#D94A38";
+        obj.innerHTML = "Thank You";
+      }
+    </script>
+  </body>
+</html>
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Events</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      function msg() {
+        var name = document.person.n1;
+        var usn = document.person.n2;
+        alert("Hello " + name.value + " USN " + usn.value);
+      }
+    </script>
+
+    <form name="person">
+      <br /><br />
+      Enter The name <br />
+      <input type="text" name="n1" /><br /><br />
+
+      Enter The USN <br />
+      <input type="text" name="n2" />
+
+      <input type="submit" onClick="msg();" />
+    </form>
+  </body>
+</html>
+
+
+
+<html>
+  <head>
+    <title>Capitals of Countries</title>
+
+    <style>
+      p {
+        color: rgb(0, 30, 255);
+        font-weight: bold;
+        font-size: 20;
+      }
+    </style>
+
+    <script language="javascript">
+      function capital() {
+        var cunt = document.forms["frm1"].country.value;
+        var capital = " Please select any country ";
+        if (cunt == "INDIA") {
+          capital = "NEW DELHI";
+        }
+        if (cunt == "USA") {
+          capital = "WASHINGTON D C";
+        }
+        if (cunt == "NETHERLANDS") {
+          capital = "AMSTERDAM";
+        }
+        if (cunt == "RUSSIA") {
+          capital = "MOSCOW";
+        }
+        if (cunt == "JAPAN") {
+          capital = "TOKYO";
+        }
+        if (cunt == "select") {
+          capital = "Please select any Country";
+        }
+        document.getElementById("capt").innerHTML = capital;
+      }
+    </script>
+  </head>
+
+  <body>
+    <form name="frm1">
+      <br />
+      <center>
+        Select a Country :
+        <select name="country" onchange="capital()">
+          <option value="select">--SELECT--</option>
+          <option value="INDIA">INDIA</option>
+          <option value="USA">USA</option>
+          <option value="NETHERLANDS">NETHERLANDS</option>
+          <option value="RUSSIA">RUSSIA</option>
+          <option value="JAPAN">JAPAN</option>
+        </select>
+        <br />
+        <br />
+
+        <font color="green" size="6">Capital is :</font>
+        <p id="capt"></p>
+      </center>
+    </form>
+  </body>
+</html>
+
+
+
+

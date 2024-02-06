@@ -1,0 +1,102 @@
+<html>
+  <head>
+    <title>Education details</title>
+    <style>
+      table.center {
+        margin-left: auto;
+        margin-right: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 align="center" style="color: blue">EDUCATION DETAILS</h1>
+    <br /><br />
+    <table
+      border="1"
+      background="gray"
+      cellspacing="5"
+      cellpadding="5"
+      class="center"
+    >
+      <th>S.No</th>
+      <th>Course</th>
+      <th>Board</th>
+      <th>School</th>
+      <th>Passing Year</th>
+      <th>Percentage</th>
+
+      <tr>
+        <td>1</td>
+        <td>10</td>
+        <td>ICSE</td>
+        <td>Oxford</td>
+        <td>2008</td>
+        <td>90</td>
+      </tr>
+
+      <tr>
+        <td>2</td>
+        <td>12</td>
+        <td>ICSE</td>
+        <td>DPS</td>
+        <td>2010</td>
+        <td>95</td>
+      </tr>
+    </table>
+  </body>
+</html>
+
+
+
+
+
+
+
+<html>
+  <head>
+    <title>Registration Page</title>
+  </head>
+  <body>
+    <center>
+      <form action="#">
+        <h3><u>REGISTRATION PAGE</u></h3>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" /><br />
+        <br />
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" /><br />
+        <br />
+        <label for="email">E-mail id:</label>
+        <input type="text" id="email" name="email" /><br />
+        <br />
+        <label for="phone">Phone number:</label>
+        <input type="text" id="phone" name="phone" /><br />
+
+        <label>Gender:</label>
+        <input type="radio" id="male" name="gender" value="male" />
+        <label for="male">Male</label>
+        <input type="radio" id="female" name="gender" value="female" />
+        <label for="female">Female</label><br />
+        <br />
+        <label for="dob">Date of Birth: </label>
+        <input type="date" id="dob" name="dob" /><br />
+
+        <label>Languages known:</label>
+        <input type="checkbox" id="kannada" name="language" value="kannada" />
+        <label for="kannada">Kannada</label>
+        <input type="checkbox" id="english" name="language" value="english" />
+        <label for="english">English</label>
+        <input type="checkbox" id="french" name="language" value="french" />
+        <label for="french">French</label>
+        <input type="checkbox" id="japanese" name="language" value="japanese" />
+        <label for="japanese">japanese</label> <br />
+        <br />
+        <label for="address">Address:</label>
+        <textarea id="address" name="address" rows="4" cols="50"></textarea
+        ><br />
+
+        <input type="submit" value="Submit" />
+      </form>
+    </center>
+  </body>
+</html>

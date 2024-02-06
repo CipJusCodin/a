@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chessboard</title>
+<style>
+
+.chessboard {
+  width: 240px;
+  height: 240px;
+  display: grid;
+  grid-template-columns: repeat(8, 30px);
+  grid-template-rows: repeat(8, 30px);
+}
+
+.cell {
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  line-height: 30px;
+  font-weight: bold;
+}
+
+
+.white {
+  background-color: #f0d9b5;
+}
+
+.black {
+  background-color: #b58863;
+  color: white;
+}
+</style>
+</head>
+<body>
+<h2>Chessboard</h2>
+<div class="chessboard">
+<?php
+
+$isWhite = true;
+
+
+for ($row = 1; $row <= 8; $row++) {
+  for ($col = 1; $col <= 8; $col++) {
+    
+    $cellClass = $isWhite ? "white" : "black";
+    
+    
+    echo "<div class='cell $cellClass'>$row, $col</div>";
+    
+    
+    $isWhite = !$isWhite;
+  }
+  $isWhite = !$isWhite;
+}
+?>
+</div>
+</body>
+</html>
+
+
+
+
+<?php
+session_start();
+$_SESSION['views'] = ($_SESSION['views'] ?? 0) + 1;
+?>
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Page Views Counter</title>
+</head>
+<body>
+<h2>Page Views Counter</h2>
+<p>This page has been viewed <?= $_SESSION['views'] ?> times.</p>
+<p>Refresh the page to see the count increase.</p>
+</body>
+</html>
+
+
+
+
+
+<?php
+$expiration = time() + (60 * 60 * 24 * 30);
+setcookie('last_visited', date('Y-m-d H:i:s'), $expiration);
+
+$lastVisitedDateTime = $_COOKIE['last_visited'] ?? 'Unknown';
+?>
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Last Visited Date-Time</title>
+</head>
+<body>
+  <h2>Last Visited Date-Time</h2>
+  <p><?php echo ($lastVisitedDateTime !== 'Unknown') ? 'Last visited on: ' . $lastVisitedDateTime : 'Welcome! This is your first visit.'; ?></p>
+</body>
+</html>
