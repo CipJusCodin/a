@@ -1,0 +1,41 @@
+import tensorflow as tf
+import numpy as np
+
+a = tf.constant([10, 20, 30], dtype=tf.float32)
+b = tf.constant([5, 15, 25], dtype=tf.float32)
+t1 = tf.constant([[1, 2], [3, 4]])
+t2 = tf.constant([[5, 6], [7, 8]])
+tensor_a = tf.constant([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
+tensor_b = tf.constant([[9, 8, 7], [6, 5, 4], [3, 2, 1]])
+
+add_result = a + b
+sub_result = a - b
+mul_result = tf.multiply(tensor_a, tensor_b)
+div_result = tf.divide(a, b)
+
+safe_div = tf.where(b != 0, a / b, tf.zeros_like(a))
+
+reshaped = tf.reshape(t1, (4,))
+squared = tf.square(a)
+broadcast = tensor_a + 5
+concat = tf.concat([t1, t2], axis=0)
+
+max_values = tf.maximum(t1, t2)
+min_values = tf.minimum(t1, t2)
+abs_values = tf.abs(t1 - t2)
+log_vals = tf.math.log(a)
+exp_vals = tf.exp(b)
+
+print("Add:", add_result.numpy())
+print("Subtract:", sub_result.numpy())
+print("Multiply:", mul_result.numpy())
+print("Safe Division:", safe_div.numpy())
+print("Reshape:", reshaped.numpy())
+print("Square:", squared.numpy())
+print("Broadcast:", broadcast.numpy())
+print("Concat:", concat.numpy())
+print("Max:", max_values.numpy())
+print("Min:", min_values.numpy())
+print("Abs:", abs_values.numpy())
+print("Log:", log_vals.numpy())
+print("Exp:", exp_vals.numpy())

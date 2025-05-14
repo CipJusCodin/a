@@ -1,0 +1,36 @@
+
+import tensorflow as tf
+import pandas as pd
+from sklearn.model_selection import train_test_split
+
+data = pd.read_csv('Data/winequality-red.csv', sep=';')
+X = data.drop(['quality'], axis=1)
+y = data['quality']
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
+
+def create_model():
+    return tf.keras.Sequential([
+        tf.keras.layers.Dense(100, input_dim=X_train.shape[1], activation='relu'),
+        tf.keras.layers.Dense(50, activation='relu'),
+        tf.keras.layers.Dense(1)
+    ])
+
+optimizers = {
+    'sgd': tf.keras.optimizers.SGD(),
+    'adam': tf.keras.optimizers.Adam(),
+    'rmsprop': tf.keras.optimizers.RMSprop(),
+    'nadam': tf.keras.optimizers.Nadam()
+}
+
+results = []
+for name, opt in optimizers.items():
+    model = create_model()
+    model.compile(loss='mse', optimizer=opt, metrics=['accuracy'])
+    hist = model.fit(X_train, y_train, epochs=50, batch_size=128, validation_split=0.2, verbose=0)
+    
+    _, acc = model.evaluate(X_test, y_test, verbose=0)
+    best_val_acc = max(hist.history['val_accuracy'])
+    results.append([name, best_val_acc, acc])
+
+df = pd.DataFrame(results, columns=['optimizer', 'val_accuracy', 'test_accuracy'])
+print(df)
